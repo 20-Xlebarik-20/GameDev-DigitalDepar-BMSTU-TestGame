@@ -25,10 +25,15 @@ namespace LearnGame.Camera
 
         protected void LateUpdate()
         {
-            Vector3 targetRotation = _rotationOffset - _followCameraOffset;
+            if( _player != null ) 
+            {
+                Vector3 targetRotation = _rotationOffset - _followCameraOffset;
 
-            transform.position = _player.transform.position + _followCameraOffset;
-            transform.rotation = Quaternion.LookRotation(targetRotation, Vector3.up);
+                transform.position = _player.transform.position + _followCameraOffset;
+                transform.rotation = Quaternion.LookRotation(targetRotation, Vector3.up);
+
+
+            }
         }
     }
 }
