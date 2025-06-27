@@ -25,6 +25,7 @@ namespace LearnGame.Movement
 
             MovementDirection = direction.normalized;
 
+
         }
 
 
