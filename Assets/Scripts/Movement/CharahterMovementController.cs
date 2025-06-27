@@ -12,8 +12,7 @@ namespace LearnGame.Movement
         private float _speed = 1f;
         [SerializeField]
         private float _maxRadiansDelta = 10f;
-        [SerializeField]
-        private float _acceleration = 2f;
+
 
         public Vector3 MovementDirection { get; set; }
         public Vector3 LookDirection { get; set; }
@@ -49,19 +48,6 @@ namespace LearnGame.Movement
             {
                 var NewRotate = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(LookDirection, Vector3.up), _maxRadiansDelta*Time.deltaTime);
                 transform.rotation = NewRotate;
-            }
-        }
-
-        public void Player_Acceleration()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                _speed *= _acceleration;
-            }
-
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                _speed /= _acceleration;
             }
         }
     }
